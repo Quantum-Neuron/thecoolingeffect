@@ -1,24 +1,27 @@
 import { Component } from "react";
 import AboutVM from "./AboutVM";
-import { Card, Form, FormGroup } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
+import { AboutDetail } from "../Models/AboutDetail";
 
-export default class About extends Component {
-  private aboutVM: AboutVM;
+export interface AboutVMProps {
+  viewModel: AboutVM;
+  AboutDetails: AboutDetail;
+}
 
-  constructor(props: any) {
+export default class About extends Component<AboutVMProps> {
+  constructor(props: AboutVMProps) {
     super(props);
-    this.aboutVM = new AboutVM();
+    this.props.viewModel.initialise();
   }
 
   render() {
-    // const { viewModel } = this.aboutVM;
-
     return (
     <>
       <Card>
         <Form>
-          <FormGroup>
-          </FormGroup>
+          <Form.Group className="mb-3">
+            <Form.Control value={this.props.viewModel.aboutDetails.firstName} disabled={true} />
+          </Form.Group>
         </Form>
       </Card>
     </>

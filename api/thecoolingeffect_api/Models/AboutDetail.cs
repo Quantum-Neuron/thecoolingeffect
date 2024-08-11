@@ -11,7 +11,7 @@ namespace thecoolingeffect_api.Models
   {
     public AboutDetail()
     {
-      AboutDetailId = ObjectId.GenerateNewId().ToString();
+      AboutDetailId = ObjectId.GenerateNewId().ToString(); // Generate a new ObjectId as a string
     }
 
     /// <summary>

@@ -7,7 +7,9 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb_data:/data/db
+      - mongodb-data:/data/db
+    networks:
+      - thecoolingeffect-network
   
   api:
     build:
@@ -15,11 +17,13 @@ services:
       dockerfile: Dockerfile
     container_name: api
     ports:
-      - "5000"
+      - "8080:8080"
     depends_on:
       - mongodb
     environment:
-      - MONGO_URI=mongodb://mongodb:27017
+      - MONGODB_URI=mongodb://mongodb:27017
+    networks:
+      - thecoolingeffect-network
   
   frontend:
     build:
@@ -30,17 +34,25 @@ services:
       - "3000:80"
     depends_on:
       - api
+    networks:
+      - thecoolingeffect-network
   
   nginx:
-    build:
-      context: ./nginx/
-      dockerfile: Dockerfile
+    image: nginx:latest
     container_name: nginx
     ports:
-      - "80:80"
+      - "443:443"
     depends_on:
       - frontend
       - api
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/certificates:/etc/nginx/certificates:ro
+    networks:
+      - thecoolingeffect-network
 
 volumes:
-  mongodb_data:
+  mongodb-data:
+networks:
+  thecoolingeffect-network:
+    driver: bridge

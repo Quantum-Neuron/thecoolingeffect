@@ -1,13 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import About from "./Views/About"
 import Homepage from "./Views/Homepage"
+import AboutVM from "./Views/AboutVM";
+import About from "./Views/About";
+
+const AboutWrapper: React.FC = () => {
+  const aboutVM = new AboutVM();
+  return <About viewModel={aboutVM} AboutDetails={aboutVM.aboutDetails} />;
+}
 
 const PageRoutes: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<AboutWrapper />} />
         <Route path="*" element={<Homepage />} />
       </Routes>
     </Router>

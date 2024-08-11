@@ -1,28 +1,18 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-
-const AboutPageButton: React.FC = () => {
-	const navigate = useNavigate();
-
-	const goToAbout = () => {
-		navigate("/about");
-	};
-
-	return (
-		<React.Fragment>
-			<Button size="lg" value="About" onClick={goToAbout} />
-		</React.Fragment>
-	);
-};
+import { NavLink } from "react-router-dom";
 
 export default class Homepage extends React.Component {
 	render() {
 		return (
-			<>
-				<h1>Homepage</h1>
-				<AboutPageButton />
-			</>
+			<div className="container">
+				<div>
+					<h1>Homepage</h1>
+				</div>
+				<NavLink to="/about">
+					<Button variant="primary" size="lg" />
+				</NavLink>
+			</div>
 		);
 	}
 }

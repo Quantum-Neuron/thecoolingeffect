@@ -15,9 +15,12 @@ namespace thecoolingeffect_api
       this.dbContext = dbContext;
     }
 
+    /// <summary>
+    /// Seed data to MongoDB
+    /// </summary>
     public void Seed()
     {
-      if (dbContext.AboutDetails.CountDocuments(FilterDefinition<AboutDetail>.Empty) == 0)
+      if (dbContext.AboutDetails.CountDocuments(FilterDefinition<AboutDetail>.Empty) == 0) // Check if there is no seed data already.
       {
         var details = new AboutDetail()
         {

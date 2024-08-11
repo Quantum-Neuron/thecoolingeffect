@@ -23,7 +23,7 @@ namespace thecoolingeffect_api.Controllers
     }
 
     /// <summary>
-    /// Get personal details.
+    /// Get about details.
     /// </summary>
     /// <returns></returns>
     [HttpGet("details")]

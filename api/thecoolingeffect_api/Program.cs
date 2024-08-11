@@ -11,17 +11,17 @@ builder.Services.Configure<DatabaseSettings>(builder
   .Configuration.GetSection(nameof(DatabaseSettings)));
 
 builder.Services.AddSingleton(sp =>
-  sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+  sp.GetRequiredService<IOptions<DatabaseSettings>>().Value); // Register the DatabaseSettings
 
-builder.Services.AddSingleton<IMongoClient, MongoClient>(sp =>
+builder.Services.AddSingleton<IMongoClient, MongoClient>(sp => // Set up the MongoDB client
 {
   var settings = sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
   return new MongoClient(settings.ConnectionString);
 });
 
-builder.Services.AddSingleton<ModelDbContext>();
-builder.Services.AddSingleton<IAboutService, AboutService>();
-builder.Services.AddTransient<GenerateSeedData>();
+builder.Services.AddSingleton<ModelDbContext>(); // Register the ModelDbContext
+builder.Services.AddSingleton<IAboutService, AboutService>(); // Register the AboutService
+builder.Services.AddTransient<GenerateSeedData>(); // Register the GenerateSeedData
 
 builder.Services.AddControllers();
 
@@ -38,7 +38,6 @@ app.UseHttpsRedirection();
 app.UseDeveloperExceptionPage();
 app.UseRouting();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

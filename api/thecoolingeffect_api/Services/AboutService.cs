@@ -23,6 +23,12 @@ namespace thecoolingeffect_api.Services
       this.logger = logger;
     }
 
+    /// <summary>
+    /// Get About Page Details
+    /// </summary>
+    /// <returns>About Detail Object.</returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="InvalidOperationException"></exception>
     public async Task<AboutDetail> GetAboutPageDetailsAsync()
     {
       try

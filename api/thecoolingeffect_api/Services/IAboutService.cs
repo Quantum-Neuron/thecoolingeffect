@@ -7,6 +7,10 @@ namespace thecoolingeffect_api.Services
   /// </summary>
   public interface IAboutService
   {
+    /// <summary>
+    /// Get About Page Details
+    /// </summary>
+    /// <returns>About Detail Object.</returns>
     Task<AboutDetail> GetAboutPageDetailsAsync();
   }
 }
