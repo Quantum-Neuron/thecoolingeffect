@@ -1,8 +1,17 @@
-import React from "react";
+import axios from "axios";
+import { AboutDetail } from "../Models/AboutDetail";
 
-export default class AboutVM extends React.Component {
-    
-    public async initialise() {
+export default class AboutVM {
+  public aboutDetails = new AboutDetail();
 
-    }
+  public async initialise() {
+    await this.getAboutDetailsAsync();
+  }
+
+  private async getAboutDetailsAsync() {
+    const result = (await axios.get("https://localhost:7091/api/about/details"))
+      .data;
+    this.aboutDetails = result;
+    console.log(this.aboutDetails);
+  }
 }
