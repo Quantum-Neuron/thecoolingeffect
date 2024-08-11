@@ -2,6 +2,7 @@ import { Component, useEffect, useState } from "react";
 import AboutVM from "./AboutVM";
 import { Card, Form, Spinner } from "react-bootstrap";
 import { AboutDetail } from "../Models/AboutDetail";
+import tinyToiletGif from "../Images/curse-you-tiny-toilet.gif";
 
 export interface AboutVMProps {
   viewModel: AboutVM;
@@ -26,8 +27,8 @@ const About: React.FC<AboutVMProps> = ({ viewModel }) => {
   }
 
   return (
-    <Card className="text-center">
-      <Card.Header>About</Card.Header>
+    <Card className="text-center shadow">
+      <Card.Header><h1>About</h1></Card.Header>
       <Card.Body>
         <Card.Title>
           This is about some guy called <strong>{data?.firstName}</strong>
@@ -41,6 +42,7 @@ const About: React.FC<AboutVMProps> = ({ viewModel }) => {
       </Card.Body>
       <Card.Footer>
         Here is a little joke for you: <strong>{data?.joke}</strong>
+        <img className="mt-3" src={tinyToiletGif} />
       </Card.Footer>
     </Card>
   );
