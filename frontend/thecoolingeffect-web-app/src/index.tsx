@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import PageRoutes from './PageRoutes';
-import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
+import "bootstrap/dist/css/bootstrap.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -5,7 +5,7 @@ import About from "./Views/About";
 
 const AboutWrapper: React.FC = () => {
   const aboutVM = new AboutVM();
-  return <About viewModel={aboutVM} AboutDetails={aboutVM.aboutDetails} />;
+  return <About viewModel={aboutVM} />;
 }
 
 const PageRoutes: React.FC = () => {
