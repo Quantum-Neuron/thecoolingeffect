@@ -1,6 +1,6 @@
 import { Component, useEffect, useState } from "react";
 import AboutVM from "./AboutVM";
-import { Card, Form } from "react-bootstrap";
+import { Card, Form, Spinner } from "react-bootstrap";
 import { AboutDetail } from "../Models/AboutDetail";
 
 export interface AboutVMProps {
@@ -11,6 +11,7 @@ const About: React.FC<AboutVMProps> = ({ viewModel }) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<AboutDetail | null>(null);
 
+  // Display a loading message while About details are being fetched.
   useEffect(() => {
     const fetchData = async () => {
       await viewModel.initialise();
@@ -21,7 +22,7 @@ const About: React.FC<AboutVMProps> = ({ viewModel }) => {
   }, [viewModel]);
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Spinner animation="grow" variant="light" />
   }
 
   return (
