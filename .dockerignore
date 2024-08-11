@@ -1,0 +1,43 @@
+# Ignore .NET build directories
+api/thecoolingeffect_api/bin/
+api/thecoolingeffect_api/obj/
+
+# Ignore user-specific files
+api/thecoolingeffect_api/*.user
+api/thecoolingeffect_api/*.suo
+api/thecoolingeffect_api/*.userosscache
+api/thecoolingeffect_api/*.sln.docstates
+
+# Ignore build output
+api/thecoolingeffect_api/*.dll
+api/thecoolingeffect_api/*.exe
+api/thecoolingeffect_api/*.pdb
+api/thecoolingeffect_api/*.cache
+api/thecoolingeffect_api/*.log
+api/thecoolingeffect_api/*.csproj.user
+
+# Ignore temporary files
+api/thecoolingeffect_api/*.tmp
+api/thecoolingeffect_api/*.temp
+api/thecoolingeffect_api/*.swp
+api/thecoolingeffect_api/*.swo
+
+# Ignore IDE-specific files
+api/thecoolingeffect_api/.vscode/
+api/thecoolingeffect_api/.idea/
+api/thecoolingeffect_api/*.code-workspace
+
+# Ignore OS-specific files
+api/thecoolingeffect_api/.DS_Store
+api/thecoolingeffect_api/Thumbs.db
+
+# Ignore Unnecessary Front End Files
+frontend/thecoolingeffect-web-app/node_modules/
+frontend/thecoolingeffect-web-app/.env/
+frontend/thecoolingeffect-web-app/build/
+
+# Do Not Ignore Docker-Related Files
+!api/thecoolingeffect_api/Dockerfile
+!docker-compose.yml
+!frontend/thecoolingeffect-web-app/Dockerfile
+!nginx/nginx.conf
