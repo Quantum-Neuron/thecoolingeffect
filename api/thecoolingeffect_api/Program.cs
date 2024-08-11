@@ -24,18 +24,8 @@ builder.Services.AddSingleton<IAboutService, AboutService>();
 builder.Services.AddTransient<GenerateSeedData>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-  app.UseSwagger();
-  app.UseSwaggerUI();
-}
 
 using (var scope = app.Services.CreateScope())
 {
@@ -45,7 +35,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
-
+app.UseDeveloperExceptionPage();
+app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
