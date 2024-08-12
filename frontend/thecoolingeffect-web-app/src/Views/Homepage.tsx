@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { MDBContainer } from "mdb-react-ui-kit";
-import tinyToiletGif from "../Images/curse-you-tiny-toilet.gif";
 
 const Homepage: React.FC = () => {
 	return (
