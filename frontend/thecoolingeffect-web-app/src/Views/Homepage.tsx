@@ -33,7 +33,7 @@ const Homepage: React.FC = () => {
 					</NavLink>
 				</Card.Body>
 				<Card.Footer>
-					<p>Copyright - What do you mean.</p>
+					<p>Thank you for visiting.</p>
 				</Card.Footer>
 			</Card>
 		</div>
