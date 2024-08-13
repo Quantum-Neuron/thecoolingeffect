@@ -25,6 +25,13 @@ builder.Services.AddTransient<GenerateSeedData>(); // Register the GenerateSeedD
 
 builder.Services.AddControllers();
 
+// Add CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin",
+        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -38,6 +45,10 @@ app.UseHttpsRedirection();
 app.UseDeveloperExceptionPage();
 app.UseRouting();
 app.UseAuthorization();
+
+// Apply the CORS policy
+app.UseCors("AllowAnyOrigin");
+
 app.MapControllers();
 
 app.Run();
