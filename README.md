@@ -12,6 +12,6 @@
 
 <h2>URLS</h2>
 <p>Web API - localhost:8080</p>
-<p>Front End - localhost:3000</p>
+<p>Front End - localhost:80</p>
 <p>nginx - localhost:443</p>
 <p>mongo db - mongodb://localhost:27017</p>
